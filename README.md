@@ -46,7 +46,7 @@ Typical components:
 ## Example Usage
 
 ```python
-from topology_species import SomeTopology
+from topology_species import Bezier
 
-topology = SomeTopology(param1=0.5, param2=10)
-geometry = topology.generate()
+topology = Bezier()
+topology.draw_shape()
