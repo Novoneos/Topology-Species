@@ -26,20 +26,44 @@ This makes it easy to:
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
-Typical components:
+This repository is intentionally minimal:
 
-- **Base class**
-  - Defines the common interface for all topology species
-- **Concrete topology species**
-  - Specific geometry families (e.g. parametric shapes)
-- **Free-form species**
-  - Random or parameter-driven topology generation
-- **Utility functions**
-  - Discretization, masks, or geometry helpers
+| File | Description |
+|------|-------------|
+| `topology_species.py` | Core implementation of all topology species and the shared base interface |
+| `example.py` | Example script that instantiates and visualizes each topology species once |
 
-(See source files for implementation details.)
+There are no external dependencies beyond standard scientific Python packages.
+
+---
+
+## 🧬 Available Topology Species
+
+The following topology species are currently implemented.  
+All species share a common interface and can be used interchangeably.
+
+| Name | Category | Source |
+|-----|----------|--------|
+| `Cross` | Basic shape | - |
+| `Rectangle` | Basic shape | - |
+| `Ellipse` | Basic shape | - |
+| `SplitRing` | Basic shape | - |
+| `VShape` | Basic shape | - |
+| `LShape` | Basic shape | - |
+| `Bezier` | Freeform (parametric) | This work |
+| `BezierFlower` | Freeform (parametric) | This work |
+| `BezierStar` | Freeform (parametric) | This work |
+| `NeedleDrop` | Freeform (stochastic) | Opt. Express 28, 31932-31942 (2020) |
+| `HeightmapSlice` | Freeform (procedural) | Opt. Express 28, 24229-24242 (2020) |
+| `DiffusionAggregation` | Freeform (procedural) | This work |
+| `WaveInterference` | Freeform (procedural) | This work |
+| `CellularAutomata` | Freeform (procedural) | This work |
+
+**Categories**
+- **Basic shape**: simple analytic geometries with few parameters  
+- **Freeform**: procedurally or parametrically generated topologies, often higher complexity
 
 ---
 
