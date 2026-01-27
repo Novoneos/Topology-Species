@@ -1751,7 +1751,7 @@ class WaveInterference(Shape2D):
             'fill_fraction': np.mean(self.img)
         }
     
-    def visualize_interference_debug(self, figsize=(20, 4)):
+    def visualize_interference_debug(self, figsize=(20, 4), savefig=True, name='waveinterference_debug'):
         """Debug visualization to understand what's happening."""
         fig, axes = plt.subplots(1, 5, figsize=figsize)
         
@@ -1798,7 +1798,11 @@ class WaveInterference(Shape2D):
             print(f"  {key}: {value:.4f}")
         
         plt.tight_layout()
-        plt.show()
+        
+        if savefig:
+            fig.savefig(name + '.png', bbox_inches='tight')
+            plt.clf()
+        else: plt.show()
         
         
 class CellularAutomata(Shape2D):
