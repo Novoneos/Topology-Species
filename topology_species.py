@@ -1298,7 +1298,7 @@ class HeightmapSlice(Shape2D):
         
         return spline(high_res_coords, high_res_coords)
     
-    def visualize_3d_landscape(self, figsize=(12, 5)):
+    def visualize_3d_landscape(self, figsize=(12, 5), savefig=True, name='heightmapslice_3d'):
         """
         Visualize both the 3D height landscape and the resulting 2D slice.
         """
@@ -1330,7 +1330,11 @@ class HeightmapSlice(Shape2D):
         ax2.axis('off')
         
         plt.tight_layout()
-        plt.show()
+        
+        if savefig:
+            fig.savefig(name + '.png', bbox_inches='tight')
+            plt.clf()
+        else: plt.show()
     
     def get_shape_data(self):
         """Return all the class variables for analysis or optimization."""
