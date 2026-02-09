@@ -323,7 +323,7 @@ class Bezier(Shape2D):
         self.x, self.y = c.T
         # Separate the x and y coordinates of the curve
 
-    def draw_shape_to_array(self, padding=0.2, threshold=0.5):
+    def draw_shape_to_array(self, padding=0.1, threshold=0.5):
         """
         Convert the Bezier curve to a binary image.
         """
@@ -342,16 +342,8 @@ class Bezier(Shape2D):
         y_pad_min = ymin - padding
         y_pad_max = ymax + padding
         
-        if xmin >= 0 and ymin >= 0 and xmax <= 1 and ymax <= 1:
-            ax.set_xlim(0, 1)
-            ax.set_ylim(0, 1)
-        else:
-            ax.set_xlim(x_pad_min, x_pad_max)
-            ax.set_ylim(y_pad_min, y_pad_max)
-        
-        # border = abs(min([shape.x.min(), shape.y.min()]))-padding
-        # plt.xlim(0 - border, 1 + border)
-        # plt.ylim(0 - border, 1 + border)
+        ax.set_xlim(x_pad_min, x_pad_max)
+        ax.set_ylim(y_pad_min, y_pad_max)
         
         # Turn off the axis, and add a background patch
         ax.set_axis_off()
